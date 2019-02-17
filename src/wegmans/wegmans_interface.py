@@ -17,5 +17,5 @@ def get_by_keyword(keyword):
     request_url = config['api']['product_url'] + '/search?query=' + keyword + '&' + config['api']['api_version'] + '&' + config['api']['product_key']
     response = requests.get(request_url)
     item_sku = int(response.json()['results'][0]['sku'])
-    item_name = response.json()['results'][0]['name']
+    item_name = keyword
     return Item(item_sku, item_name)
